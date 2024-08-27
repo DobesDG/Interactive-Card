@@ -6,3 +6,49 @@
     box-sizing: border-box;
     text-decoration: none;
 }
+
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/images/bg-main-desktop.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 483px;
+    height: 900px;
+}
+
+.card-front{
+    background-image: url('/images/bg-card-front.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 447px;
+    height: 245px;
+    padding: 30px;
+}
+
+.card-back{
+    background-image: url('/images/bg-card-back.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 447px;
+    height: 245px;
+}
+
+.expCvv-conteiner{
+    display: flex;
+    flex: row;
+}
+
+.expDate-inputs {
+    display: flex;
+    flex: row;
+}
