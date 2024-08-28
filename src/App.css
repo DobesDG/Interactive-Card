@@ -22,6 +22,9 @@
     background-size: cover;
     width: 483px;
     height: 900px;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    color: hsl(0, 0%, 100%);
 }
 
 .card-front{
@@ -34,13 +37,41 @@
     padding: 30px;
 }
 
+.card-number{
+    padding-top: 50px;
+    letter-spacing: 4px;
+    font-size: 28px;
+}
+
+.card-front-subinfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 30px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
 .card-back{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
     background-image: url('/images/bg-card-back.png');
     background-size: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     width: 447px;
     height: 245px;
+    padding-right: 60px;
+    padding-bottom: 5px;
+}
+
+.card-cvv{
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 500;
 }
 
 .expCvv-conteiner{
