@@ -68,13 +68,58 @@
     padding-bottom: 5px;
 }
 
-.card-cvv{
+.card-cvc{
     font-size: 14px;
     letter-spacing: 2px;
     font-weight: 500;
 }
 
-.expCvv-conteiner{
+.form-conteiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 957px;
+    height: 900px;
+}
+
+.form {
+    width: 365px;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 900;
+    color: hsl(278, 68%, 11%);
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.input-div > p {
+    padding-bottom: 10px;
+}
+
+.input-div{
+    padding-bottom: 30px;
+}
+
+input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: hsl(278, 68%, 11%);
+    line-height: 150%;
+    border-radius: 8px;
+    border: 1px solid hsl(270, 3%, 87%);
+    padding: 8px 12px;
+}
+
+input::placeholder {
+    color: hsl(270, 3%, 87%);
+}
+
+.expcvc-conteiner{
     display: flex;
     flex: row;
 }
@@ -82,4 +127,30 @@
 .expDate-inputs {
     display: flex;
     flex: row;
+    width: 175px;
+}
+
+.cvc-conteiner{
+    padding-left: 10px;
+}
+
+.month-input{
+    padding-right: 10px;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: hsl(278, 68%, 11%);
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: hsl(270, 3%, 87%);
+    line-height: 150%;
+    border-radius: 8px;
+    border: 1px solid hsl(278, 68%, 11%);
+    padding: 8px 12px;
+    margin-top: 10px;
 }
