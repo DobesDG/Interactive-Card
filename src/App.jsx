@@ -34,7 +34,7 @@ const handleCardNumberChange = (e) => {
             </div>
           </section>
         </aside>
-        <section>
+        <section className='form-section'>
           <section className='form-conteiner'>
             <form action="" className='form'>
               <Input title={'CARDHOLDER NAME'} value={name} setValue={setName} maxLength={'16'} minLength={'16'} type={'text'} placeholder={'e.g Jane Appleseed'}/>
