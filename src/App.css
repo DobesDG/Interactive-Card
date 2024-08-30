@@ -131,12 +131,21 @@ input {
     color: hsl(278, 68%, 11%);
     line-height: 150%;
     border-radius: 8px;
-    border: 1px solid hsl(270, 3%, 87%);
     padding: 8px 12px;
+    border: 1px solid hsl(270, 3%, 87%); 
+    transition: border 0.3s ease, background 0.3s ease;
 }
 
-input:hover{
+input:hover {
     cursor: pointer;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%)) border-box;
 }
 
 input::placeholder {
