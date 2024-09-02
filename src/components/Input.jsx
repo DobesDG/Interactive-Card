@@ -1,37 +1,39 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 
-export const Input = ({ value, setValue, required = true, type, maxLength, minLength, placeholder, handle = false , title, inputMode, pattern }) => {
-    const [error,setError] = useState(false);
-    const [showError,setShowError] = useState(false);
-
-    const ref = useRef();
+export const Input = ({ value, setValue, required = true, type, maxLength, minLength, placeholder, handleNumber = false , title, inputMode, pattern }) => {
+    const [typeError, setTypeError] = useState("")
+    const isMissing = typeError == "missing"
+    const isWrong = typeError == "wrong"
+    const isTooShort = typeError == "tooShort"
 
     const handleBlur = (e) => {
+        const newValueIsWrong = e.target.validity.patternMismatch;
+        const newValueIsMissing = e.target.validity.valueMissing;
+        const newValueIsTooShort = e.target.validity.tooShort;
         if (!e.target.validity.valid) {
-            setError(true);
-            setShowError(true);
-            if (ref.current) {
-                ref.current.focus(); 
-            }
+            if (newValueIsWrong) {
+                setTypeError("wrong")
+            };
+            if (newValueIsMissing) {
+                setTypeError("missing")
+            };
+            if (newValueIsTooShort) {
+                setTypeError("tooShort")
+            };
         }
         if (e.target.validity.valid) {
-            setShowError(false);
+            setTypeError("");
         }
     };
 
     const handleChange = (e) => {
-        const newValueIsValid = !e.target.validity.patternMismatch;
-        if (error && newValueIsValid) {
-            setError(false);
-            setShowError(false);
-        }
+        const newValueIsWrong = e.target.validity.patternMismatch;
+        const newValueIsMissing = e.target.validity.valueMissing;
+        const newValueIsTooShort = e.target.validity.tooShort;
+        if (!newValueIsWrong && !newValueIsMissing && !newValueIsTooShort) {
+            setTypeError("");
+        };
         setValue(e.target.value);
-    };
-
-    const handleFocus = () => {
-        if (error) {
-            setShowError(true)
-        }
     };
 
     const handleCardNumberChange = (e) => {
@@ -44,10 +46,16 @@ export const Input = ({ value, setValue, required = true, type, maxLength, minLe
     <div>
         <div className="input-div">
             <p>{title}</p>
-            <input ref={ref} maxLength={maxLength} minLength={minLength} required={required} pattern={pattern} type={type} onFocus={handleFocus} onBlur={handleBlur} value={value} placeholder={placeholder} inputMode={inputMode} onChange={handle ? handleCardNumberChange : handleChange} />
+            <input maxLength={maxLength} minLength={minLength} required={required} pattern={pattern} type={type} onBlur={handleBlur} value={value} placeholder={placeholder} inputMode={inputMode} onChange={handleNumber ? handleCardNumberChange : handleChange} />
         </div>
-        {showError && (
-            <p role="alert" style={{ color: "rgb(255, 0, 0)" }}>Please enter a valid...</p>
+        {isMissing && (
+            <p role="alert" style={{ color: "rgb(255, 0, 0)" }}>Can't be blank</p>
+        )}
+        {isWrong && (
+            <p role="alert" style={{ color: "rgb(255, 0, 0)" }}>Wrong format, {inputMode = "numeric" ? "numbers" : "characters"} only</p>
+        )}
+        {isTooShort && (
+            <p role="alert" style={{ color: "rgb(255, 0, 0)" }}>Too short</p>
         )}
     </div>
     );

@@ -33,7 +33,7 @@ const [cvc,setCvc] = useState([""])
           <section className='form-conteiner'>
             <form action="" className='form'>
               <Input title={'CARDHOLDER NAME'} value={name} setValue={setName} maxLength={'16'} minLength={'16'} type={'text'} placeholder={'e.g Jane Appleseed'} pattern={"^[A-Za-z]+(?: [A-Za-z]+)*$"}/>
-              <Input title={'CARD NUMBER'} value={number} setValue={setNumber} handle={true} maxLength={'19'} minLength={'19'} type={'text'} inputMode={"numeric"} placeholder={'e.g 1234 5678 9123 0000'}/>
+              <Input title={'CARD NUMBER'} value={number} setValue={setNumber} handleNumber={true} maxLength={'19'} minLength={'19'} type={'text'} inputMode={"numeric"} placeholder={'e.g 1234 5678 9123 0000'}/>
               <section className='expcvc-conteiner'>
                 <div className='expDate-conteiner'>
                   <p>EXP. DATE (MM/YY)</p>
@@ -42,14 +42,14 @@ const [cvc,setCvc] = useState([""])
                       <Input value={month} setValue={setMonth} maxLength={'2'} minLength={'2'} type={'text'} inputMode={"numeric"} placeholder={'MM'} pattern={'^(0[1-9]|1[0-2])$'}/>
                     </div>
                     <div className='year-input'>
-                      <Input value={year} setValue={setYear} maxLength={'2'} minLength={'2'} type={'text'} inputMode={"numeric"} placeholder={'YY'} pattern={""}/>
+                      <Input value={year} setValue={setYear} maxLength={'2'} minLength={'2'} type={'text'} inputMode={"numeric"} placeholder={'YY'} pattern={"^\\d{2}$"}/>
                     </div>
                   </div> 
                 </div>
                 <div className='cvc-conteiner'>
                   <p>CVC</p>
                   <div className='cvc-input'>
-                    <Input value={cvc} setValue={setCvc} maxLength={'3'} type={'text'} placeholder={'e.g 123'} pattern={""}/>
+                    <Input value={cvc} setValue={setCvc} maxLength={'3'} type={'text'} placeholder={'e.g 123'} pattern={"^\\d{3}$"}/>
                   </div>
                 </div>
               </section>
