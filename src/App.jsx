@@ -49,7 +49,7 @@ const [cvc,setCvc] = useState([""])
                 <div className='cvc-conteiner'>
                   <p>CVC</p>
                   <div className='cvc-input'>
-                    <Input value={cvc} setValue={setCvc} maxLength={'3'} type={'text'} placeholder={'e.g 123'} pattern={"^\\d{3}$"}/>
+                    <Input value={cvc} setValue={setCvc} maxLength={'3'} minLength={'3'} type={'text'} inputMode={"numeric"} placeholder={'e.g 123'} pattern={"^\\d{3}$"}/>
                   </div>
                 </div>
               </section>
