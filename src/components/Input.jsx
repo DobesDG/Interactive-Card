@@ -51,7 +51,7 @@ export const Input = ({ value, setValue, required = true, type, maxLength, minLe
     return (
         <div className="input-div">
             <p>{title}</p>
-            <input maxLength={maxLength} minLength={minLength} required={required} pattern={pattern} type={type} onBlur={handleBlur} value={value} placeholder={placeholder} inputMode={inputMode} onChange={handleNumber ? handleCardNumberChange : handleChange} />
+            <input maxLength={maxLength} minLength={minLength} required={required} pattern={pattern} type={type} onBlur={handleBlur} value={value} placeholder={placeholder} inputMode={inputMode} onChange={handleNumber ? handleCardNumberChange : handleChange} onKeyDownCapture={(e) => { e.key === 'Enter' && e.preventDefault(); }} />
         {isMissing && (
             <p className="alert">Can't be blank</p>
         )}

@@ -2,6 +2,7 @@ import './App.css'
 import { useState } from 'react'
 import { Input } from './components/Input'
 import { Card } from './components/Card'
+import { Complete } from './components/Complete'
 
 function App() {
 const [number,setNumber] = useState([""])
@@ -9,7 +10,7 @@ const [name, setName] = useState([""])
 const [month,setMonth] = useState([""])
 const [year,setYear] = useState([""])
 const [cvc,setCvc] = useState([""])
-
+const [submit, setSubmit] = useState(false)
 
   return (
     <>
@@ -31,7 +32,8 @@ const [cvc,setCvc] = useState([""])
         </aside>
         <section className='form-section'>
           <section className='form-conteiner'>
-            <form action="" className='form'>
+            { !submit ? (
+              <form onSubmit={() => setSubmit(true)} className='form'>
               <Input title={'CARDHOLDER NAME'} value={name} setValue={setName} maxLength={'16'} minLength={'16'} type={'text'} placeholder={'e.g Jane Appleseed'} pattern={"^[A-Za-z]+(?: [A-Za-z]+)*$"}/>
               <Input title={'CARD NUMBER'} value={number} setValue={setNumber} handleNumber={true} maxLength={'19'} minLength={'19'} type={'text'} inputMode={"numeric"} placeholder={'e.g 1234 5678 9123 0000'}/>
               <section className='expcvc-conteiner'>
@@ -54,9 +56,12 @@ const [cvc,setCvc] = useState([""])
                 </div>
               </section>
                 <div className='button-div'>
-                  <button className='submit-button'>Confirm</button>
+                  <button className='submit-button' onKeyDownCapture={(e) => { e.key === 'Enter' && e.preventDefault(); }}>Confirm</button>
                 </div>
             </form>
+            ) : (
+              <Complete />
+            )}
           </section>
         </section>
       </main>
