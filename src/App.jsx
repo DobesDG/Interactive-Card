@@ -56,7 +56,7 @@ const [submit, setSubmit] = useState(false)
                 </div>
               </section>
                 <div className='button-div'>
-                  <button className='submit-button' onKeyDownCapture={(e) => { e.key === 'Enter' && e.preventDefault(); }}>Confirm</button>
+                  <button className='submit-button' onKeyDownCapture={(e) => {e.key === 'Enter' && e.preventDefault();}}>Confirm</button>
                 </div>
             </form>
             ) : (
