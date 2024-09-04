@@ -226,3 +226,53 @@ button:hover{
     color: hsl(279, 6%, 55%);
     padding-bottom: 40px;
 }
+
+@media screen and (max-width: 1440px) {
+    .card-front{
+        right: -22%;
+    }
+    .card-back {
+        right: -42%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .card-front{
+        background-size: contain;
+        width: 347px;
+        height: 190px;
+        padding: 20px;
+        margin-bottom: 5%;
+        right: -22%;
+        z-index: 2;
+    }
+    
+    .card-front > img {
+        width: 74px;
+        height: 43px;
+    }
+
+    .card-number{
+        padding-top: 25px;
+        letter-spacing: 3px;
+        font-size: 22px;
+    }
+    
+    .card-front-subinfo{
+        padding-top: 30px;
+        font-size: 12px;
+    }
+    
+    .card-back{
+        background-size: contain;
+        width: 347px;
+        height: 190px;
+        padding-right: 45px;
+        padding-bottom: 2px;
+        right: -42%;
+    }
+
+    .card-cvc{
+        font-size: 12px;
+    }
+}
