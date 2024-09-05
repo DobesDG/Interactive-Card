@@ -12,6 +12,15 @@ const [year,setYear] = useState([""])
 const [cvc,setCvc] = useState([""])
 const [submit, setSubmit] = useState(false)
 
+const clearState = () => {
+  setNumber("")
+  setName("")
+  setMonth("")
+  setYear("")
+  setCvc("")
+  setSubmit(false)
+}
+
   return (
     <>
       <main className='main'>
@@ -34,7 +43,7 @@ const [submit, setSubmit] = useState(false)
           <section className='form-conteiner'>
             { !submit ? (
               <form onSubmit={() => setSubmit(true)} className='form'>
-              <Input title={'CARDHOLDER NAME'} value={name} setValue={setName} maxLength={'16'} minLength={'16'} type={'text'} placeholder={'e.g Jane Appleseed'} pattern={"^[A-Za-z]+(?: [A-Za-z]+)*$"}/>
+              <Input title={'CARDHOLDER NAME'} value={name} setValue={setName} maxLength={'16'} type={'text'} placeholder={'e.g Jane Appleseed'} pattern={"^[A-Za-z]+(?: [A-Za-z]+)*$"}/>
               <Input title={'CARD NUMBER'} value={number} setValue={setNumber} handleNumber={true} maxLength={'19'} minLength={'19'} type={'text'} inputMode={"numeric"} placeholder={'e.g 1234 5678 9123 0000'}/>
               <section className='expcvc-conteiner'>
                 <div className='expDate-conteiner'>
@@ -60,7 +69,7 @@ const [submit, setSubmit] = useState(false)
                 </div>
             </form>
             ) : (
-              <Complete />
+              <Complete clear={clearState}/>
             )}
           </section>
         </section>
