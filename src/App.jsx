@@ -27,7 +27,7 @@ const clearState = () => {
         <aside className='aside'>
           <section className='card-conteiner'>
             <div className='card-front'>
-              <img src="/images/card-logo.svg" alt="" />
+              <img src="/card-logo.svg" alt="" />
               <Card defaultValue={'0000 0000 0000 0000'} value={number} setValue={setNumber} className={'card-number'} />
               <div className='card-front-subinfo'>
                 <Card defaultValue={'JANE APPLESEED'} value={name} setValue={setName} className={'cardHolder-name'}/>
